@@ -1,0 +1,26 @@
+#container {
+    display: flex;
+    height: 250px;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+}
+
+#display {
+    display: flex;
+    height: 50px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+button {
+    display: flex;
+    height: 40px;
+    width: 40px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
