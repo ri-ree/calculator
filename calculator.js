@@ -2,13 +2,13 @@ const display = document.querySelector('#display');
 const content = document.createElement('div');
 
 const buttons = document.querySelectorAll('.btn');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-    content.textContent = button.id;
-    });
-});
 
-display.appendChild(content);
+const equalSign = document.querySelector('#equal');
+
+let firstNum = 0;
+let secondNum = 0;
+let theOperator;
+let numberOfClicks = 0;
 
 function add(a, b) {
     return a + b;
@@ -26,9 +26,30 @@ function divide(a, b) {
     return a / b;
 };
 
-let firstNumber = 0;
-let operator = 0;
-let secondNumber = 0;
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+    content.textContent = button.id;
+        if (numberOfClicks % 2 == 0) {
+            firstNum += button.id;
+        } else {
+            secondNum += button.id;
+        };
+    });
+});
+
+display.appendChild(content);
+
+const operators = document.querySelectorAll('.operator');
+operators.forEach((op) => {
+    op.addEventListener('click', () => {
+        theOperator = op.id;
+        numberOfClicks++;
+        console.log(firstNum);
+        console.log(secondNum);
+        console.log(theOperator);
+        console.log(numberOfClicks);
+    });
+});
 
 function operate(a, operator, b) {
     if (operator == '+') {
@@ -41,3 +62,9 @@ function operate(a, operator, b) {
         return divide(a, b);
     };
 };
+
+equalSign.addEventListener('click', () => {
+    content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
+});
+
+
