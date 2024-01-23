@@ -23,7 +23,11 @@ function multiply(a, b) {
 };
 
 function divide(a, b) {
-    return a / b;
+    if (secondNum == 0) {
+        return "Hey there! We don't divide by 0!";
+    } else {
+        return a / b;
+    };
 };
 
 buttons.forEach((button) => {
