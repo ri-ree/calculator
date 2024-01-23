@@ -5,6 +5,8 @@ const buttons = document.querySelectorAll('.btn');
 
 const equalSign = document.querySelector('#equal');
 
+const clearButton = document.querySelector('#clear');
+
 let firstNum = 0;
 let secondNum = 0;
 let theOperator;
@@ -75,4 +77,9 @@ equalSign.addEventListener('click', () => {
     secondNum = 0;
 });
 
-
+clearButton.addEventListener('click', () => {
+    content.textContent = "";
+    firstNum = 0;
+    secondNum = 0;
+    numberOfClicks = 0;
+});
