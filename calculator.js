@@ -65,8 +65,11 @@ function operate(a, operator, b) {
         return subtract(a, b);
     } else if (operator == '*') {
         return multiply(a, b);
-    } else {
+    } else if (operator == '/') {
         return divide(a, b);
+    } else {
+        numberOfClicks = 0;
+        return "";
     };
 };
 
