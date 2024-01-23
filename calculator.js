@@ -34,11 +34,12 @@ function divide(a, b) {
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-    content.textContent += button.id;
         if (numberOfClicks % 2 == 0) {
             firstNum += button.id;
+            content.textContent = Number(firstNum);
         } else {
             secondNum += button.id;
+            content.textContent = Number(secondNum);
         };
     });
 });
@@ -49,7 +50,6 @@ const operators = document.querySelectorAll('.operator');
 operators.forEach((op) => {
     op.addEventListener('click', () => {
         theOperator = op.id;
-        content.textContent = "";
         numberOfClicks++;
         console.log(firstNum);
         console.log(secondNum);
