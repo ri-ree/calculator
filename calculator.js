@@ -50,7 +50,12 @@ display.appendChild(content);
 const operators = document.querySelectorAll('.operator');
 operators.forEach((op) => {
     op.addEventListener('click', () => {
-        theOperator = op.id;
+        if (typeof theOperator == 'undefined') {
+            theOperator = op.id;
+        } else {
+            nextOperator = op.id;
+        };
+
         if (numberOfClicks % 2 == 0) {
             numberOfClicks++;
             console.log(numberOfClicks);
