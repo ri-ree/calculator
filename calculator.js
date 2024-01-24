@@ -91,7 +91,7 @@ function operate(a, operator, b) {
 };
 
 equalSign.addEventListener('click', () => {
-    if (firstNum !== 0) {
+    if (firstNum !== 0 && numberOfClicks !== 0) {
         numberOfClicks++;
         content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
         firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
