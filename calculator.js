@@ -35,12 +35,24 @@ function divide(a, b) {
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        if (numberOfClicks > 0 && numberOfClicks % 2 == 0) {
+            firstNum = 0;
+            secondNum = 0;
+            numberOfClicks = 0;
+        };
+
         if (numberOfClicks % 2 == 0) {
             firstNum += button.id;
             content.textContent = Number(firstNum);
+            console.log(firstNum);
+            console.log(secondNum);
+            console.log(numberOfClicks);
         } else {
             secondNum += button.id;
             content.textContent = Number(secondNum);
+            console.log(firstNum);
+            console.log(secondNum);
+            console.log(numberOfClicks);
         };
     });
 });
@@ -53,17 +65,11 @@ operators.forEach((op) => {
         if (numberOfClicks % 2 == 0) {
             theOperator = op.id;
             numberOfClicks++;
-            console.log(numberOfClicks);
-            console.log(theOperator);
-            console.log(nextOperator);
         } else {
             firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
             nextOperator = op.id;
             theOperator = nextOperator;
             secondNum = 0;
-            console.log(numberOfClicks);
-            console.log(theOperator);
-            console.log(nextOperator);
             content.textContent = firstNum;
         };
     });
