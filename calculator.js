@@ -10,6 +10,7 @@ const clearButton = document.querySelector('#clear');
 let firstNum = 0;
 let secondNum = 0;
 let theOperator;
+let nextOperator;
 let numberOfClicks = 0;
 
 function add(a, b) {
