@@ -91,10 +91,15 @@ function operate(a, operator, b) {
 };
 
 equalSign.addEventListener('click', () => {
-    numberOfClicks++;
-    content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
-    firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
-    secondNum = 0;
+    if (firstNum !== 0) {
+        numberOfClicks++;
+        content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
+        firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
+        secondNum = 0;
+    console.log(firstNum);
+    console.log(secondNum);
+    console.log(numberOfClicks);
+    };
 });
 
 clearButton.addEventListener('click', () => {
