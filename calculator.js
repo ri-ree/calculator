@@ -50,11 +50,15 @@ const operators = document.querySelectorAll('.operator');
 operators.forEach((op) => {
     op.addEventListener('click', () => {
         theOperator = op.id;
-        numberOfClicks++;
-        console.log(firstNum);
-        console.log(secondNum);
-        console.log(theOperator);
-        console.log(numberOfClicks);
+        if (numberOfClicks % 2 == 0) {
+            numberOfClicks++;
+            console.log(numberOfClicks);
+        } else {
+            firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
+            secondNum = 0;
+            console.log(numberOfClicks);
+            content.textContent = firstNum;
+        };
     });
 });
 
