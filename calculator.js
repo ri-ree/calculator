@@ -50,19 +50,20 @@ display.appendChild(content);
 const operators = document.querySelectorAll('.operator');
 operators.forEach((op) => {
     op.addEventListener('click', () => {
-        if (typeof theOperator == 'undefined') {
-            theOperator = op.id;
-        } else {
-            nextOperator = op.id;
-        };
-
         if (numberOfClicks % 2 == 0) {
+            theOperator = op.id;
             numberOfClicks++;
             console.log(numberOfClicks);
+            console.log(theOperator);
+            console.log(nextOperator);
         } else {
             firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
+            nextOperator = op.id;
+            theOperator = nextOperator;
             secondNum = 0;
             console.log(numberOfClicks);
+            console.log(theOperator);
+            console.log(nextOperator);
             content.textContent = firstNum;
         };
     });
