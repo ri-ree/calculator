@@ -12,6 +12,8 @@ let secondNum = 0;
 let theOperator;
 let nextOperator;
 let numberOfClicks = 0;
+let equalClicked = 1;
+let equalSecondClicked = 0;
 
 function add(a, b) {
     return a + b;
@@ -44,15 +46,10 @@ buttons.forEach((button) => {
         if (numberOfClicks % 2 == 0) {
             firstNum += button.id;
             content.textContent = Number(firstNum);
-            console.log(firstNum);
-            console.log(secondNum);
-            console.log(numberOfClicks);
         } else {
             secondNum += button.id;
             content.textContent = Number(secondNum);
-            console.log(firstNum);
-            console.log(secondNum);
-            console.log(numberOfClicks);
+            equalSecondClicked = equalClicked;
         };
     });
 });
@@ -91,8 +88,9 @@ function operate(a, operator, b) {
 };
 
 equalSign.addEventListener('click', () => {
-    if (firstNum !== 0 && numberOfClicks !== 0) {
+    if (firstNum !== 0 && numberOfClicks !== 0 && equalSecondClicked == equalClicked) {
         numberOfClicks++;
+        equalClicked++;
         if (operate(Number(firstNum), theOperator, Number(secondNum)) % 1 == 0) {
             content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
         } else {
@@ -100,9 +98,6 @@ equalSign.addEventListener('click', () => {
         };
         firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
         secondNum = 0;
-    console.log(firstNum);
-    console.log(secondNum);
-    console.log(numberOfClicks);
     };
 });
 
@@ -111,4 +106,6 @@ clearButton.addEventListener('click', () => {
     firstNum = 0;
     secondNum = 0;
     numberOfClicks = 0;
+    equalClicked = 1;
+    equalSecondClicked = 0;
 });
