@@ -93,7 +93,11 @@ function operate(a, operator, b) {
 equalSign.addEventListener('click', () => {
     if (firstNum !== 0 && numberOfClicks !== 0) {
         numberOfClicks++;
-        content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
+        if (operate(Number(firstNum), theOperator, Number(secondNum)) % 1 == 0) {
+            content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
+        } else {
+            content.textContent = operate(Number(firstNum), theOperator, Number(secondNum)).toFixed(2);
+        };
         firstNum = operate(Number(firstNum), theOperator, Number(secondNum));
         secondNum = 0;
     console.log(firstNum);
