@@ -93,6 +93,8 @@ equalSign.addEventListener('click', () => {
         equalClicked++;
         if (operate(Number(firstNum), theOperator, Number(secondNum)) % 1 == 0) {
             content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
+        } else if (theOperator == '/' && secondNum == 0) {
+            content.textContent = operate(Number(firstNum), theOperator, Number(secondNum));
         } else {
             content.textContent = operate(Number(firstNum), theOperator, Number(secondNum)).toFixed(2);
         };
